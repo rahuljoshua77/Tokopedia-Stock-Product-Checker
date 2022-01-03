@@ -1,6 +1,9 @@
 # Tokopedia-Stock-Product-Checker
 Request URL - Check stock - Send to Telegram - Repeat!
 
+![image](https://user-images.githubusercontent.com/73378179/147933430-72196a41-afa3-4165-83e8-af046c4c150d.png)
+
+
 # Config.py
 
 token_bot: read the docs https://sendpulse.com/knowledge-base/chatbot/create-telegram-chatbot 
