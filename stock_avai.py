@@ -28,6 +28,10 @@ def check(url):
         
         get_stock = get_datass[0].split(r'\":\"')
         get_stock = get_stock[1]
+        title = get_data.split('pdpProductName')
+        title = title[1].split(r'</h1>')
+        title = title[0].split(r'">')
+        title = title[1].strip()
         print(f"[*] [{time.strftime('%d-%m-%y %X')}] {title} | Stock: {get_stock}") 
       
          
