@@ -28,13 +28,13 @@ def check(url):
         
         get_stock = get_datass[0].split(r'\":\"')
         get_stock = get_stock[1]
-        print(f"[*] [{time.strftime('%d-%m-%y %X')}] Stock: {get_stock}") 
+        print(f"[*] [{time.strftime('%d-%m-%y %X')}] {title} | Stock: {get_stock}") 
       
          
         if get_stock.isdigit():
             response = requests.post(
             url='https://api.telegram.org/bot{0}/{1}'.format(token, "sendMessage"),
-            data={'chat_id': username_channel, 'text': f"[{time.strftime('%d-%m-%y %X')}] | Stock: {get_stock}"}
+            data={'chat_id': username_channel, 'text': f"[{time.strftime('%d-%m-%y %X')}] {title} | Stock: {get_stock}"}
         ).json()
         
          
