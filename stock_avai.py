@@ -36,10 +36,11 @@ def check(url):
       
          
         if get_stock.isdigit():
-            response = requests.post(
-            url='https://api.telegram.org/bot{0}/{1}'.format(token, "sendMessage"),
-            data={'chat_id': username_channel, 'text': f"[{time.strftime('%d-%m-%y %X')}] {title} | Stock: {get_stock}"}
-        ).json()
+            if get_stock > 0:
+                response = requests.post(
+                url='https://api.telegram.org/bot{0}/{1}'.format(token, "sendMessage"),
+                data={'chat_id': username_channel, 'text': f"[{time.strftime('%d-%m-%y %X')}] {title} | Stock: {get_stock}"}
+            ).json()
         
          
 def main():
