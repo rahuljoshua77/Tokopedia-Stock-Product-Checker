@@ -28,15 +28,20 @@ def check(url):
         
         get_stock = get_datass[0].split(r'\":\"')
         get_stock = get_stock[1]
+        title = get_data.split('pdpProductName')
+        title = title[1].split(r'</h1>')
+        title = title[0].split(r'">')
+        title = title[1].strip()
+        print(f"[*] [{time.strftime('%d-%m-%y %X')}] {title} | Stock: {get_stock}") 
+      
          
-        print(f"[*] [{time.strftime('%d-%m-%y %X')}] Stock: {get_stock}")
-        try:
-                response = requests.post(
-                url='https://api.telegram.org/bot{0}/{1}'.format(token, "sendMessage"),
-                data={'chat_id': username_channel, 'text': f"[{time.strftime('%d-%m-%y %X')}] | Stock: {get_stock}"}
-            ).json()
-        except:
-            pass
+        if get_stock.isdigit():
+            response = requests.post(
+            url='https://api.telegram.org/bot{0}/{1}'.format(token, "sendMessage"),
+            data={'chat_id': username_channel, 'text': f"[{time.strftime('%d-%m-%y %X')}] {title} | Stock: {get_stock}"}
+        ).json()
+        
+         
 def main():
     print("[*] Tokopedia Stock Checker!")
     url = input("[*] Input URL: ")
